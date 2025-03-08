@@ -1,4 +1,4 @@
-  @prod_domain = null
+  @prod_domain = https://contacts-project-3h21.onrender.com
   @dev_domain = http://localhost:3000
   @userId = 67cc009b853fbe72308d75e2f
   
