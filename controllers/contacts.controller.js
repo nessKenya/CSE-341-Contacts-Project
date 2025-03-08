@@ -1,0 +1,22 @@
+const mongodb = require('../data/database');
+const ObjectId = require('mongodb').ObjectId;
+
+const getAllContacts = async (req, res) => {
+  const result = await mongodb.getDatabase().db().collection('contacts').find();
+  result.toArray().then(users => {
+    return res.status(200).json(users)
+  });
+}
+
+const getContact = async (req, res) => {
+  const contactId = new ObjectId(req.params.id);
+  const result = await mongodb.getDatabase().db().collection('contacts').find({_id: contactId});
+  result.toArray().then(users => {
+    return res.status(200).json(users[0])
+  }).catch(error=>console.log(error));
+}
+
+module.exports = {
+  getAllContacts,
+  getContact
+}

@@ -1,0 +1,13 @@
+  @prod_domain = null
+  @dev_domain = http://localhost:3000
+  @userId = 67cc009b853fbe72308d75e2f
+  
+### Get all contacts
+GET {{dev_domain}}/contacts
+###
+GET {{prod_domain}}/contacts
+
+### Get specific contact by id
+GET {{dev_domain}}/contacts/{{userId}}
+###
+GET {{prod_domain}}/contacts/{{userId}}
