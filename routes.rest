@@ -1,6 +1,6 @@
-  @prod_domain = https://contacts-project-3h21.onrender.com
+@prod_domain = https://contacts-project-3h21.onrender.com
   @dev_domain = http://localhost:3000
-  @userId = 67cc009b853fbe72308d75e2f
+  @contactId = 67d556af1b2495a457a44ac8
   
 ### Get all contacts
 GET {{dev_domain}}/contacts
@@ -8,6 +8,54 @@ GET {{dev_domain}}/contacts
 GET {{prod_domain}}/contacts
 
 ### Get specific contact by id
-GET {{dev_domain}}/contacts/{{userId}}
+GET {{dev_domain}}/contacts/{{contactId}}
 ###
-GET {{prod_domain}}/contacts/{{userId}}
+GET {{prod_domain}}/contacts/{{contactId}}
+### Create new contact
+POST {{dev_domain}}/contacts
+content-type: application/json
+
+{
+  "firstName": "john",
+  "lastName": "doe",
+  "email": "doe@example.com",
+  "favoriteColor": "white",
+  "birthday": "26-10-2000"
+}
+###
+POST {{prod_domain}}/contacts
+content-type: application/json
+
+{
+  "firstName": "john",
+  "lastName": "doe",
+  "email": "doe@example.com",
+  "favoriteColor": "white",
+  "birthday": "26-10-2000"
+}
+### Update contact
+PUT {{dev_domain}}/contacts/{{contactId}}
+content-type: application/json
+
+{
+  "firstName": "jane",
+  "lastName": "doe",
+  "email": "doe@example.com",
+  "favoriteColor": "pink",
+  "birthday": "26-10-2000"
+}
+###
+PUT {{prod_domain}}/contacts/{{contactId}}
+content-type: application/json
+
+{
+  "firstName": "john",
+  "lastName": "doe",
+  "email": "doe@example.com",
+  "favoriteColor": "white",
+  "birthday": "26-10-2000"
+}
+### Delete contact
+DELETE {{dev_domain}}/contacts/{{contactId}}
+###
+DELETE {{prod_domain}}/contacts/{{contactId}}
