@@ -1,11 +1,12 @@
 const swaggerAutogen = require('swagger-autogen')();
+const domain = process.env.NODE_ENV === "production"?"https://contacts-project-3h21.onrender.com":"http://localhost:3000"
 
 const doc = {
   info: {
     title: 'Contacts API',
     description: 'Description'
   },
-  host: 'localhost:3000'
+  host: domain
 };
 
 const outputFile = './swagger-output.json';
