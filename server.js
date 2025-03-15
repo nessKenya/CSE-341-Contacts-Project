@@ -1,11 +1,19 @@
 const express = require('express')
+const cors = require('cors');
 const app = express()
 const port = 3000
 const mongodb = require('./data/database')
 
-const contactRoute = require('./routes/contacts')
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
 
-app.use('/contacts', contactRoute)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)); 
+
+app.use(cors())
+  .use(express.json())
+  .use(express.urlencoded({ extended: true }))
+
+app.use('/', require('./routes'));
 
 mongodb.initDb((err) => {
   if(err) {
